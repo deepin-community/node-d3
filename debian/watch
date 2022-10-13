@@ -1,0 +1,15 @@
+version=4
+opts=\
+dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
+filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-d3-$1.tar.gz/ \
+ https://github.com/d3/d3/releases .*/archive/v?([\d\.]+).tar.gz debian
+
+opts="searchmode=plain,pgpmode=none,component=rollup-plugin-ascii" \
+ https://registry.npmjs.org/rollup-plugin-ascii \
+ https://registry.npmjs.org/rollup-plugin-ascii/-/rollup-plugin-ascii-(0.[\d\.]*)@ARCHIVE_EXT@ ignore
+
+opts=\
+component=d3-sankey,\
+dversionmangle=auto,\
+filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-d3-sankey-$1.tar.gz/ \
+ https://github.com/d3/d3-sankey/tags .*/archive/v?([\d\.]+).tar.gz ignore

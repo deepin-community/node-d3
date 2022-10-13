@@ -1,0 +1,38 @@
+
+Forwarded: https://github.com/d3/d3/pull/3454
+
+--- a/rollup.config.js
++++ b/rollup.config.js
+@@ -1,5 +1,5 @@
+ import ascii from "rollup-plugin-ascii";
+-import node from "rollup-plugin-node-resolve";
++import node from "@rollup/plugin-node-resolve";
+ import {terser} from "rollup-plugin-terser";
+ import * as meta from "./package.json";
+ 
+@@ -24,10 +24,8 @@
+     input: "index.js",
+     plugins: [
+     node({
+-        customResolveOptions: {
+-            moduleDirectory: ['/usr/share/nodejs', '/usr/lib/nodejs'],
+-            preferBuiltins: false
+-          }
++        moduleDirectories: ['/usr/share/nodejs', '/usr/lib/nodejs'],
++        preferBuiltins: false
+     }),
+       ascii()
+     ],
+@@ -45,10 +43,8 @@
+     input: "index.js",
+     plugins: [
+       node({
+-        customResolveOptions: {
+-            moduleDirectory: ['/usr/share/nodejs', '/usr/lib/nodejs'],
+-            preferBuiltins: false
+-          }
++        moduleDirectories: ['/usr/share/nodejs', '/usr/lib/nodejs'],
++        preferBuiltins: false
+     }),
+       ascii(),
+       terser({output: {preamble: copyright}})

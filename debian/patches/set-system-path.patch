@@ -1,0 +1,31 @@
+Description: Set system path
+--- a/rollup.config.js
++++ b/rollup.config.js
+@@ -23,7 +23,12 @@
+   {
+     input: "index.js",
+     plugins: [
+-      node(),
++    node({
++        customResolveOptions: {
++            moduleDirectory: ['/usr/share/nodejs', '/usr/lib/nodejs'],
++            preferBuiltins: false
++          }
++    }),
+       ascii()
+     ],
+     output: {
+@@ -39,7 +44,12 @@
+   {
+     input: "index.js",
+     plugins: [
+-      node(),
++      node({
++        customResolveOptions: {
++            moduleDirectory: ['/usr/share/nodejs', '/usr/lib/nodejs'],
++            preferBuiltins: false
++          }
++    }),
+       ascii(),
+       terser({output: {preamble: copyright}})
+     ],

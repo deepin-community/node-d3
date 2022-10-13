@@ -1,0 +1,1 @@
+mkdir dist && json2module package.json > dist/package.js && rollup -c
