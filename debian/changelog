@@ -1,3 +1,84 @@
+node-d3 (5.16.0+~cs5.28.10-2) unstable; urgency=medium
+
+  * Team upload
+
+  [Julian Gilbey]
+
+  * Fix lintian-overrides and add DEP-3 headers to patches
+
+  [Nilesh Patra]
+
+  * Do not export map from d3-array (which is a newer version than d3
+    expects), so that the d3-collection version of map is exported
+    (closes: #1064824)
+
+ -- Julian Gilbey <jdg@debian.org>  Wed, 06 Mar 2024 06:13:04 +0000
+
+node-d3 (5.16.0+~cs5.28.10-1) unstable; urgency=medium
+
+  * Team upload
+  * Update standards version to 4.6.2, no changes needed.
+  * Embed typescript declarations and repack
+
+ -- Yadd <yadd@debian.org>  Sun, 03 Sep 2023 08:00:41 +0400
+
+node-d3 (5.16.0-10) unstable; urgency=medium
+
+  * Team upload
+  * Build d3-sankey (fixes autopkgtest)
+
+ -- Yadd <yadd@debian.org>  Fri, 02 Dec 2022 12:07:59 +0100
+
+node-d3 (5.16.0-9) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Update lintian override info format in d/source/lintian-overrides on line
+    5-7.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Sun, 27 Nov 2022 16:02:17 +0000
+
+node-d3 (5.16.0-8) unstable; urgency=medium
+
+  * Team upload
+  * Replace /releases by /tags in GitHub urls
+
+ -- Yadd <yadd@debian.org>  Wed, 02 Nov 2022 08:54:04 +0100
+
+node-d3 (5.16.0-7) unstable; urgency=medium
+
+  * Team upload
+  * Add fix for rollup 3 (Closes: #1022607)
+
+ -- Yadd <yadd@debian.org>  Tue, 25 Oct 2022 10:42:10 +0200
+
+node-d3 (5.16.0-6) unstable; urgency=medium
+
+  * Team upload
+  * Update standards version to 4.6.1, no changes needed.
+  * Update patch for recent @rollup/plugin-node-resolve
+  * Rebuild to drop __proto__ calls
+
+ -- Yadd <yadd@debian.org>  Tue, 20 Sep 2022 21:21:58 +0200
+
+node-d3 (5.16.0-5) unstable; urgency=medium
+
+  * Team upload
+
+  [ Nilesh Patra ]
+  * [skip ci] Update email
+
+  [ Yadd ]
+  * Update standards version to 4.6.0, no changes needed.
+  * Add ctype=nodejs to component(s)
+  * Fix filenamemangle
+  * Fix GitHub tags regex
+  * Use dh-sequence-nodejs instead of pkg-js-tools
+  * Drop dependency to nodejs (Closes: #1009233)
+  * Add lintian overrides
+  * Update copyright
+
+ -- Yadd <yadd@debian.org>  Sat, 09 Apr 2022 17:42:23 +0200
+
 node-d3 (5.16.0-4) unstable; urgency=medium
 
   * Update minimum version of node-rollup-plugin-node-resolve

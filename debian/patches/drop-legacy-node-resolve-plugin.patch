@@ -18,7 +18,7 @@ Forwarded: https://github.com/d3/d3/pull/3454
 -            moduleDirectory: ['/usr/share/nodejs', '/usr/lib/nodejs'],
 -            preferBuiltins: false
 -          }
-+        moduleDirectories: ['/usr/share/nodejs', '/usr/lib/nodejs'],
++        modulePaths: ['/usr/share/nodejs', '/usr/lib/nodejs'],
 +        preferBuiltins: false
      }),
        ascii()
@@ -31,7 +31,7 @@ Forwarded: https://github.com/d3/d3/pull/3454
 -            moduleDirectory: ['/usr/share/nodejs', '/usr/lib/nodejs'],
 -            preferBuiltins: false
 -          }
-+        moduleDirectories: ['/usr/share/nodejs', '/usr/lib/nodejs'],
++        modulePaths: ['/usr/share/nodejs', '/usr/lib/nodejs'],
 +        preferBuiltins: false
      }),
        ascii(),

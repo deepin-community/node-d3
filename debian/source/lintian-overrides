@@ -1,0 +1,7 @@
+# Same author
+add-component-copyright d3-sankey [debian/copyright]
+add-component-copyright rollup-plugin-ascii [debian/copyright]
+# False positives
+very-long-line-length-in-source-file * [*.md:*]
+# Generic types-* path
+add-component-copyright types-*

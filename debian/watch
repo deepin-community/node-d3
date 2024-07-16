@@ -1,15 +1,19 @@
 version=4
 opts=\
 dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-d3-$1.tar.gz/ \
- https://github.com/d3/d3/releases .*/archive/v?([\d\.]+).tar.gz debian
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-d3-$1/ \
+ https://github.com/d3/d3/tags .*/archive/.*/v?([\d\.]+).tar.gz group
 
-opts="searchmode=plain,pgpmode=none,component=rollup-plugin-ascii" \
+opts="searchmode=plain,pgpmode=none,ctype=nodejs,component=rollup-plugin-ascii" \
  https://registry.npmjs.org/rollup-plugin-ascii \
- https://registry.npmjs.org/rollup-plugin-ascii/-/rollup-plugin-ascii-(0.[\d\.]*)@ARCHIVE_EXT@ ignore
+ https://registry.npmjs.org/rollup-plugin-ascii/-/rollup-plugin-ascii-(0.[\d\.]*)@ARCHIVE_EXT@ checksum
 
 opts=\
+ctype=nodejs,\
 component=d3-sankey,\
 dversionmangle=auto,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-d3-sankey-$1.tar.gz/ \
- https://github.com/d3/d3-sankey/tags .*/archive/v?([\d\.]+).tar.gz ignore
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-d3-sankey-$1/ \
+ https://github.com/d3/d3-sankey/tags .*/archive/.*/v?([\d\.]+).tar.gz checksum
+
+opts="searchmode=plain,component=types-d3,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-types-d3-$1/" \
+ https://registry.npmjs.org/@types/d3 https://registry.npmjs.org/@types/d3/-/d3-([\d\.]+)@ARCHIVE_EXT@ checksum
