@@ -1,0 +1,16 @@
+Description: Ensure that d3-collection's map function is exported
+Author: Nilesh Patra <npatra974@gmail.com>
+Forwarded: not-needed
+Bug-Debian: https://bugs.debian.org/1064824
+Last-Update: 2024-03-05
+
+--- a/index.js
++++ b/index.js
+@@ -4,6 +4,7 @@
+ export * from "d3-brush";
+ export * from "d3-chord";
+ export * from "d3-collection";
++export {map} from "d3-collection";
+ export * from "d3-color";
+ export * from "d3-contour";
+ export * from "d3-dispatch";

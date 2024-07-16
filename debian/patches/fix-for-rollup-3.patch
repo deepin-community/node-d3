@@ -1,0 +1,48 @@
+Description: fix for rollup 3
+Author: Yadd <yadd@debian.org>
+Bug-Debian: https://bugs.debian.org/1022607
+Forwarded: not-needed
+Last-Update: 2022-12-02
+
+--- a/d3-sankey/rollup.config.js
++++ b/d3-sankey/rollup.config.js
+@@ -1,5 +1,5 @@
+-import {terser} from "rollup-plugin-terser";
+-import * as meta from "./package.json";
++const { terser } = require("rollup-plugin-terser");
++const meta = require("./package.json");
+ 
+ const config = {
+   input: "src/index.js",
+@@ -16,7 +16,7 @@
+   plugins: []
+ };
+ 
+-export default [
++module.exports = [
+   config,
+   {
+     ...config,
+--- a/rollup.config.js
++++ b/rollup.config.js
+@@ -1,7 +1,7 @@
+-import ascii from "rollup-plugin-ascii";
+-import node from "@rollup/plugin-node-resolve";
+-import {terser} from "rollup-plugin-terser";
+-import * as meta from "./package.json";
++const ascii = require("rollup-plugin-ascii");
++const node = require("@rollup/plugin-node-resolve").nodeResolve;
++const { terser } = require("rollup-plugin-terser");
++const meta = JSON.parse(require("fs").readFileSync("./package.json"));
+ 
+ const copyright = `// ${meta.homepage} v${meta.version} Copyright ${(new Date(process.env.SOURCE_DATE_EPOCH ? (process.env.SOURCE_DATE_EPOCH * 1000) : new Date().getTime())).getFullYear()} ${meta.author.name}`;
+ 
+@@ -10,7 +10,7 @@
+   warn(message);
+ }
+ 
+-export default [
++module.exports = [
+   {
+     input: "index.js",
+     external: Object.keys(meta.dependencies || {}).filter(key => /^d3-/.test(key)),
